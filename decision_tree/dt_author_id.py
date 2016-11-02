@@ -19,9 +19,7 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
-print len(features_train[0])
-import sys
-sys.exit()
+#print len(features_train[0])
 
 #########################################################
 from sklearn import tree
