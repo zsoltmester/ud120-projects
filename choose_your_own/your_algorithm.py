@@ -81,3 +81,9 @@ print "--- Random Forest ---"
 from sklearn.ensemble import RandomForestClassifier
 clf = RandomForestClassifier(n_estimators=10, criterion="entropy", min_samples_split=8)
 execute(clf, "random_forest")
+
+## AdaBoost
+print "--- AdaBoost ---"
+from sklearn.ensemble import AdaBoostClassifier
+clf = AdaBoostClassifier(n_estimators=20)
+execute(clf, "adaboost")
