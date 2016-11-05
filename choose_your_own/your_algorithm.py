@@ -50,12 +50,16 @@ def execute(clf, output_name):
 print "--- Naive Bayes ---"
 from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
-
 execute(clf, "naive_bayes")
 
 ### SVM
 print "--- SVM ---"
 from sklearn import svm
 clf = svm.SVC(kernel="rbf", C=10000)
-
 execute(clf, "svm")
+
+## Decision Tree
+print "--- Decision Tree ---"
+from sklearn import tree
+clf = tree.DecisionTreeClassifier(min_samples_split=40)
+execute(clf, "decision_tree")
