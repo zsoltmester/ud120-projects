@@ -28,17 +28,24 @@ plt.show()
 ################################################################################
 
 
-### your code here!  name your classifier object clf if you want the 
+### your code here!  name your classifier object clf if you want the
 ### visualization code (prettyPicture) to show you the decision boundary
 
+from time import time
+from sklearn.metrics import accuracy_score
 
+### Naive Bayes
+print "--- Naive Bayes ---"
+from sklearn.naive_bayes import GaussianNB
+clf = GaussianNB()
 
+t0 = time()
+clf.fit(features_train, labels_train)
+print "training time:", round(time()-t0, 3), "s"
 
+t0 = time()
+pred = clf.predict(features_test)
+print "prediction time:", round(time()-t0, 3), "s"
+print "accuracy: ", accuracy_score(pred, labels_test)
 
-
-
-
-try:
-    prettyPicture(clf, features_test, labels_test)
-except NameError:
-    pass
+prettyPicture(clf, features_test, labels_test, "naive_bayes")
