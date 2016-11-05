@@ -17,14 +17,14 @@ bumpy_slow = [features_train[ii][1] for ii in range(0, len(features_train)) if l
 
 
 #### initial visualization
-plt.xlim(0.0, 1.0)
-plt.ylim(0.0, 1.0)
-plt.scatter(bumpy_fast, grade_fast, color = "b", label="fast")
-plt.scatter(grade_slow, bumpy_slow, color = "r", label="slow")
-plt.legend()
-plt.xlabel("bumpiness")
-plt.ylabel("grade")
-plt.show()
+# plt.xlim(0.0, 1.0)
+# plt.ylim(0.0, 1.0)
+# plt.scatter(bumpy_fast, grade_fast, color = "b", label="fast")
+# plt.scatter(grade_slow, bumpy_slow, color = "r", label="slow")
+# plt.legend()
+# plt.xlabel("bumpiness")
+# plt.ylabel("grade")
+# plt.show()
 ################################################################################
 
 
@@ -63,3 +63,16 @@ print "--- Decision Tree ---"
 from sklearn import tree
 clf = tree.DecisionTreeClassifier(min_samples_split=40)
 execute(clf, "decision_tree")
+
+## K Nearest Neighbors
+print "--- K Nearest Neighbors ---"
+from sklearn.neighbors import KNeighborsClassifier
+clf = KNeighborsClassifier(n_neighbors=10)
+execute(clf, "k_nearest")
+execute(clf, "decision_tree")
+
+## Radius Neighbors
+print "--- Radius Neighbors ---"
+from sklearn.neighbors import RadiusNeighborsClassifier
+clf = RadiusNeighborsClassifier(radius=0.2)
+execute(clf, "radius")
