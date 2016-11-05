@@ -69,10 +69,15 @@ print "--- K Nearest Neighbors ---"
 from sklearn.neighbors import KNeighborsClassifier
 clf = KNeighborsClassifier(n_neighbors=10)
 execute(clf, "k_nearest")
-execute(clf, "decision_tree")
 
 ## Radius Neighbors
 print "--- Radius Neighbors ---"
 from sklearn.neighbors import RadiusNeighborsClassifier
 clf = RadiusNeighborsClassifier(radius=0.2)
 execute(clf, "radius")
+
+## Random Forest
+print "--- Random Forest ---"
+from sklearn.ensemble import RandomForestClassifier
+clf = RandomForestClassifier(n_estimators=10, criterion="entropy", min_samples_split=8)
+execute(clf, "random_forest")
