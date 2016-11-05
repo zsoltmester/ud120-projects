@@ -67,7 +67,7 @@ execute(clf, "decision_tree")
 ## K Nearest Neighbors
 print "--- K Nearest Neighbors ---"
 from sklearn.neighbors import KNeighborsClassifier
-clf = KNeighborsClassifier(n_neighbors=10)
+clf = KNeighborsClassifier(n_neighbors=1)
 execute(clf, "k_nearest")
 
 ## Radius Neighbors
