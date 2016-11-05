@@ -34,18 +34,28 @@ plt.show()
 from time import time
 from sklearn.metrics import accuracy_score
 
+def execute(clf, output_name):
+    t0 = time()
+    clf.fit(features_train, labels_train)
+    print "training time:", round(time()-t0, 3), "s"
+
+    t0 = time()
+    pred = clf.predict(features_test)
+    print "prediction time:", round(time()-t0, 3), "s"
+    print "accuracy: ", accuracy_score(pred, labels_test)
+
+    prettyPicture(clf, features_test, labels_test, output_name)
+
 ### Naive Bayes
 print "--- Naive Bayes ---"
 from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
 
-t0 = time()
-clf.fit(features_train, labels_train)
-print "training time:", round(time()-t0, 3), "s"
+execute(clf, "naive_bayes")
 
-t0 = time()
-pred = clf.predict(features_test)
-print "prediction time:", round(time()-t0, 3), "s"
-print "accuracy: ", accuracy_score(pred, labels_test)
+### SVM
+print "--- SVM ---"
+from sklearn import svm
+clf = svm.SVC(kernel="rbf", C=10000)
 
-prettyPicture(clf, features_test, labels_test, "naive_bayes")
+execute(clf, "svm")
